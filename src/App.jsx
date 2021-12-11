@@ -13,10 +13,10 @@ class App extends Component {
 
       <Navbar />
       <Switch>
-        <ProtectedRoutes path="/Home" component={Home} />
         <Route path="/Login" component={Login} />
         <Route path="/Register" component={Register} />
-        <Redirect exact from="/" to="Home" />
+        <ProtectedRoutes path="/Home" component={Home} />
+        <Redirect exact from="/" to="Login" />
         <Route path="*" component={NotFound} />
       </Switch>
 

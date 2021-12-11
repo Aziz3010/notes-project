@@ -3,6 +3,9 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
 function Home() {
+
+
+
     let baseURL = "https://route-egypt-api.herokuapp.com/";
 
     let token = localStorage.getItem('token');
@@ -10,6 +13,12 @@ function Home() {
 
     const [allNotes, setAllNotes] = useState([]);
     const [noNotes, setNoNotes] = useState("");
+
+
+    useEffect(() => {
+        getAllNotes();
+    }, [])
+
 
     async function getAllNotes() {
         var { data } = await axios.get(baseURL + 'getUserNotes', {
@@ -26,11 +35,6 @@ function Home() {
         }
 
     }
-
-    useEffect(() => {
-        getAllNotes();
-    }, [])
-
 
     // ////////////////
 
